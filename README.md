@@ -11,8 +11,8 @@
 ## Api Endpoints
 ### Users:
 **GET:**<br/>
-localhost:8080/users?test_id=1 <br/>
-localhost:8080/users/1 <br/>
+localhost:8080/users?test_id=:test_id/ <br/>
+localhost:8080/users/:test_id/ <br/>
 
 **POST:**
 <br/>
