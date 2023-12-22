@@ -1,0 +1,45 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'users/detail.css' %}">
+
+{% if user %}
+    <div class="card">
+        <div style="padding-top: 20px;margin-bottom: 15px;" >
+            <div style="display: flex;flex-direction: row;align-items: center; justify-content: center;gap: 10px; " >
+                {% if user.active %}
+                    <div class="green-dot"></div>
+                {% else %}
+                    <div class="gray-dot"></div>
+                {% endif %}
+                <p style="font-size:32px;font-weight:800;" >{{ user.name }}</p>
+            </div>
+            <p class="title">{{ user.role }}</p>
+        </div>
+        <div style="margin-bottom: 20px;" >
+            <div style="display: grid;grid-template-columns: repeat(2, 1fr);gap: 15px;" >
+                <div style="display: flex;flex-direction: row;justify-content:start;align-items: center;gap: 10px;" >
+                    <p style="font-weight: 750;" >Department:</p>
+                    <p>{{ user.department }}</p>
+                </div>
+                <div style="display: flex;flex-direction: row;justify-content:start;align-items: center;gap: 10px;">
+                    <p style="font-weight: 750;" >Location:</p>
+                    <p>{{ user.location }}</p>
+                </div>
+                <div style="display: flex;flex-direction: row;justify-content:start;align-items: center;gap: 10px;">
+                    <p style="font-weight: 750;" >Email:</p>
+                    <p>{{ user.email }}</p>
+                </div>
+                <div style="display: flex;flex-direction: row;justify-content:start;align-items: center;gap: 10px;">
+                    <p style="font-weight: 750;" >Joined:</p>
+                    <p>{{ user.createdAt|date:"F"}} {{ user.createdAt|date:"Y" }} </p>
+                </div>
+                <div style="display: flex;flex-direction: row;justify-content:start;align-items: center;gap: 10px;">
+                    <p style="font-weight: 750;" >Updated:</p>
+                    <p> {{ user.updatedAt |date:"F" }} {{ user.updatedAt|date:"Y" }} </p>
+                </div>
+            </div>
+        </div>
+        <p><button>Contact</button></p>
+    </div>
+{% else %}
+    <p>No users available.</p>
+{% endif %}

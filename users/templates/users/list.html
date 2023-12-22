@@ -1,0 +1,11 @@
+{% if users %}
+    <div> Users:</div>
+    <ul>
+    {% for user in users %}
+        <!-- <li><a href="{% url 'getOne' user.test_id %}">{{ user.name }}</a></li> -->
+        <li><a href="{% url 'index' %}?test_id={{ user.test_id }}">{{ user.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No users are available.</p>
+{% endif %}
